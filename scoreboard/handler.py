@@ -5,8 +5,8 @@ class ScoreBoardHandler(Handler):
     def ping(self):
         return self.package_response("pong")
 
-    def pingback(self, input):
-        return self.package_response(input)
+    def pingback(self, ping_data):
+        return self.package_response(ping_data)
 
     def attach_db(self, db):
         self.db = db
