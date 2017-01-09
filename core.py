@@ -5,3 +5,6 @@ class Handler():
     def register(self, app):
         for path, func in self.services.iteritems():
             app.route(path)(func)
+
+    def package_response(self, response):
+        return str(response)
