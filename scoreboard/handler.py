@@ -1,12 +1,13 @@
 from core import Handler
 
+from flask import request
 
 class ScoreBoardHandler(Handler):
     def ping(self):
         return self.package_response("pong")
 
-    def pingback(self, ping_data):
-        return self.package_response(ping_data)
+    def pingback(self):
+        return self.package_response(request.form)
 
     def attach_db(self, db):
         self.db = db
