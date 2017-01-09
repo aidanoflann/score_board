@@ -4,7 +4,9 @@ class Handler():
 
     def register(self, app):
         for path, func in self.services.iteritems():
-            app.route(path)(func)
+            if func.__code__.co_argcount == 1:
+                app.route(path)(func)
 
-    def package_response(self, response):
+    @staticmethod
+    def package_response(response):
         return str(response)
