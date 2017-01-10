@@ -7,7 +7,7 @@ class ScoreBoardHandler(Handler):
         return self.package_response("pong")
 
     def pingback(self):
-        return self.package_response(request.form)
+        return self.package_response(dict(request.get_json(force=True)))
 
     def attach_db(self, db):
         self.db = db

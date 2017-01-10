@@ -5,7 +5,7 @@ class Handler():
     def register(self, app):
         for path, func in self.services.iteritems():
             if func.__code__.co_argcount == 1:
-                app.route(path)(func)
+                app.route(path, methods=["POST"])(func)
 
     @staticmethod
     def package_response(response):
