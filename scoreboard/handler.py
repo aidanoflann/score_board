@@ -1,14 +1,21 @@
-from core import Handler
-
 from flask import request
 
+from core import Handler
+
+from scoreboard.transactions import create_table_transaction
+
+
+class ScoreBoardManagementHandler(Handler):
+    #TODO: all services here should require extra validation
+    def create_table(self):
+        request_json = request.get_json(force=True)
+        table_name = request_json.get("table_name")
+        column_names = request_json.get("column_names")
+        column_data_types = request_json.get("column_data_types")
+        create_table_transaction(table_name, column_names, column_data_types)
+
+
 class ScoreBoardHandler(Handler):
-    def ping(self):
-        return self.package_response("pong")
-
-    def pingback(self):
-        return self.package_response(dict(request.get_json(force=True)))
-
     def attach_db(self, db):
         self.db = db
 
