@@ -16,9 +16,6 @@ class ScoreBoardManagementHandler(Handler):
 
 
 class ScoreBoardHandler(Handler):
-    def attach_db(self, db):
-        self.db = db
-
     def __init__(self):
         self.db = None
         self.services = {

@@ -1,13 +1,12 @@
-import MySQLdb
-
 from flask import Flask
+
+from database.storagelayer import connect
 
 from scoreboard.handler import ScoreBoardHandler
 
 
 def initialise_database():
-    db=MySQLdb.connect(user="root", passwd="panda123")
-    ScoreBoardHandler().attach_db(db)
+    connect()
 
 
 def initialise_handlers(app):
