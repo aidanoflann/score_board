@@ -2,7 +2,7 @@ from flask import Flask
 
 from database.storagelayer import connect
 
-from scoreboard.handler import ScoreBoardHandler
+from scoreboard.handler import ScoreBoardHandler, ScoreBoardManagementHandler
 
 
 def initialise_database():
@@ -11,6 +11,7 @@ def initialise_database():
 
 def initialise_handlers(app):
     ScoreBoardHandler().register(app)
+    ScoreBoardManagementHandler().register(app)
 
 if __name__ == "__main__":
     app = Flask(__name__)
