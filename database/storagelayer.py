@@ -9,5 +9,6 @@ def connect():
 
 
 def execute_mysql(command):
-    cursor = db.cursor()
+    cursor = connect().cursor()
     cursor.execute(command)
+    cursor.close()
