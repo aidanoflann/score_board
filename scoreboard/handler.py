@@ -24,5 +24,5 @@ class ScoreBoardHandler(Handler):
         self.db = None
         self.services = {
             "/insert_score": self.insert_score,
-            "/create_scoreboard", self.create_scoreboard
+            "/create_scoreboard": self.create_scoreboard
         }
