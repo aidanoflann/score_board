@@ -36,7 +36,7 @@ def insert_into_table_transaction(table_name, field_names, field_values):
     :param field_values:
     :return:
     """
-    cs_field_names = ",".join(field_names)
-    cs_field_values = ",".join(field_values)
+    cs_field_names = ", ".join(field_names)
+    cs_field_values = ", ".join(field_values)
     command = "INSERT INTO {} ({}) VALUES ({})".format(table_name, cs_field_names, cs_field_values)
     execute_mysql(command)
