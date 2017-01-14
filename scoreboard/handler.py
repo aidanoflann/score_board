@@ -10,10 +10,12 @@ class ScoreBoardHandler(Handler):
         request_json = request.get_json(force=True)
         game_name = request_json.get("game_name")
         user = request_json.get("user")
-        score = request_json.get("score")
+        score = str(request_json.get("score"))
         insert_score_transaction(game_name, user, score)
         return "Done"
 
     def __init__(self):
         self.db = None
-        self.services = {}
+        self.services = {
+            "/insert_score": self.insert_score
+        }
