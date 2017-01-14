@@ -26,3 +26,17 @@ def drop_table_transaction(table_name):
     """
     command = "DROP TABLE {}".format(table_name)
     execute_mysql(command)
+
+
+def insert_into_table_transaction(table_name, field_names, field_values):
+    """
+
+    :param table_name:
+    :param field_names:
+    :param field_values:
+    :return:
+    """
+    cs_field_names = ",".join(field_names)
+    cs_field_values = ",".join(field_values)
+    command = "INSERT INTO {} ({}) VALUES ({})".format(table_name, cs_field_names, cs_field_values)
+    execute_mysql(command)
