@@ -26,7 +26,6 @@ class ScoreBoardHandler(Handler):
         result = get_top_scores_transaction(game_name)
         return str(result)
 
-
     def __init__(self):
         self.db = None
         self.services = {
