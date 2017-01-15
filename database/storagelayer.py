@@ -9,7 +9,10 @@ def connect():
 
 
 def execute_mysql(command):
-    cursor = connect().cursor()
     # TODO: get cursor without reconnecting?
+    conn = connect()
+    cursor = conn.cursor()
     cursor.execute(command)
+    conn.commit()
+    cursor.close()
     return cursor.fetchall()
