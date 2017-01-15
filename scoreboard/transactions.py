@@ -1,3 +1,5 @@
+import time
+
 from sql_wrapper.transactions import insert_into_table_transaction, create_table_transaction, \
     select_all_transaction
 
@@ -10,8 +12,8 @@ def create_scoreboard_transaction(game_name):
     :param game_name:   name of the game. used as the scoreboard name.
     """
     # TODO: store times too
-    column_names = ["user", "score"]
-    column_data_types = ["TEXT", "INTEGER"]
+    column_names = ["user", "score", "time"]
+    column_data_types = ["TEXT", "INTEGER", "DATETIME"]
     create_table_transaction(game_name, column_names, column_data_types)
 
 
@@ -22,8 +24,8 @@ def insert_score_transaction(game_name, user, score):
     :param user:
     :param score:
     """
-    field_names = ["user", "score"]
-    field_values = [enquote(user), enquote(score)]
+    field_names = ["user", "score", "time"]
+    field_values = [enquote(user), enquote(score), enquote(time.strftime('%Y-%m-%d %H:%M:%S'))]
     insert_into_table_transaction(game_name, field_names, field_values)
 
 
