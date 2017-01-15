@@ -1,6 +1,8 @@
-from sql_wrapper.transactions import insert_into_table_transaction, create_table_transaction
+from sql_wrapper.transactions import insert_into_table_transaction, create_table_transaction, \
+    select_all_transaction
 
 from utils.formatting_utils import enquote
+
 
 def create_scoreboard_transaction(game_name):
     """ Create a fresh scoreboard for a game.
@@ -23,3 +25,12 @@ def insert_score_transaction(game_name, user, score):
     field_names = ["user", "score"]
     field_values = [enquote(user), enquote(score)]
     insert_into_table_transaction(game_name, field_names, field_values)
+
+
+def get_top_scores_transaction(game_name):
+    """ Get all scores from the "top x" score board.
+
+    :param game_name:
+    :return:
+    """
+    return select_all_transaction(game_name)

@@ -40,3 +40,14 @@ def insert_into_table_transaction(table_name, field_names, field_values):
     cs_field_values = ", ".join(field_values)
     command = "INSERT INTO {} ({}) VALUES ({})".format(table_name, cs_field_names, cs_field_values)
     execute_mysql(command)
+
+
+def select_all_transaction(table_name):
+    """ Get all rows from the given table.
+
+    :param table_name:
+    :return:
+    """
+    command = "SELECT * FROM {}".format(table_name)
+    result = execute_mysql(command)
+    return result

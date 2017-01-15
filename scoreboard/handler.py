@@ -2,7 +2,7 @@ from flask import request
 
 from core import Handler
 
-from scoreboard.transactions import insert_score_transaction, create_scoreboard_transaction
+from scoreboard.transactions import insert_score_transaction, create_scoreboard_transaction, get_top_scores_transaction
 
 
 class ScoreBoardHandler(Handler):
@@ -20,9 +20,17 @@ class ScoreBoardHandler(Handler):
         insert_score_transaction(game_name, user, score)
         return "Done"
 
+    def get_scores(self):
+        request_json = request.get_json(force=True)
+        game_name = request_json.get("game_name")
+        result = get_top_scores_transaction(game_name)
+        return str(result)
+
+
     def __init__(self):
         self.db = None
         self.services = {
             "/insert_score": self.insert_score,
-            "/create_scoreboard": self.create_scoreboard
+            "/create_scoreboard": self.create_scoreboard,
+            "/get_scores": self.get_scores
         }
