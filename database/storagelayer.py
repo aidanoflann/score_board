@@ -11,6 +11,5 @@ def connect():
 def execute_mysql(command):
     cursor = connect().cursor()
     # TODO: get cursor without reconnecting?
-    result = cursor.execute(command)
-    cursor.close()
-    return result
+    cursor.execute(command)
+    return cursor.fetchall()
