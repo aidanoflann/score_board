@@ -11,7 +11,7 @@ def create_scoreboard_transaction(game_name):
 
     :param game_name:   name of the game. used as the scoreboard name.
     """
-    # TODO: store times too
+    # TODO: store metadata?
     column_names = ["user", "score", "time"]
     column_data_types = ["TEXT", "INTEGER", "DATETIME"]
     create_table_transaction(game_name, column_names, column_data_types)

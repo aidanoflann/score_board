@@ -13,6 +13,7 @@ def execute_mysql(command):
     conn = connect()
     cursor = conn.cursor()
     cursor.execute(command)
+    result = cursor.fetchall()
     conn.commit()
     cursor.close()
-    return cursor.fetchall()
+    return result
