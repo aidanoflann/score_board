@@ -4,6 +4,7 @@ MAINTAINER Aidan OFlannagain
 ADD . .
 
 RUN apt-get update
+RUN apt-get install libmysqlclient-dev
 RUN pip install --upgrade -r requirements.txt
 
 CMD ["/bin/bash"]
