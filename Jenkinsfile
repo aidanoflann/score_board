@@ -5,7 +5,7 @@ node() {
     println commit_id
 
     stage "docker_login"
-    sh "\$(aws ecr get-login)"
+    sh "echo 'what the shit'"
 
     stage "build"
     sh "docker build . -t score_board"
