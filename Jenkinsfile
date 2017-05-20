@@ -11,10 +11,9 @@ node() {
         sh "\$DOCKER_COMMAND"
 
         stage "build"
-        def app = docker.build "score_board"
+        sh "docker build ."
 
         stage "publish"
-        app.push 'master'
-        app.push "${commit_id}"
+        sh "docker push http://364843010988.dkr.ecr.eu-west-1.amazonaws.com"
     }
 }
