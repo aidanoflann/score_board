@@ -8,7 +8,7 @@ node() {
 
         stage "docker_login"
         sh "DOCKER_COMMAND=\$(aws ecr get-login)"
-        sh "$DOCKER_COMMAND"
+        sh "\$DOCKER_COMMAND"
 
         stage "build"
         def app = docker.build "score_board"
