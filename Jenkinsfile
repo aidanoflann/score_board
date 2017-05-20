@@ -11,7 +11,7 @@ node() {
         sh "\$DOCKER_COMMAND"
 
         stage "build"
-        sh "docker build ."
+        sh "docker build . -t score_board"
 
         stage "publish"
         sh "docker tag score_board 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board"
