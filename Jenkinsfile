@@ -7,7 +7,7 @@ node() {
         println commit_id
 
         stage "docker_login"
-        sh "DOCKER_COMMAND=${aws ecr get-login}"
+        sh "DOCKER_COMMAND=\$(aws ecr get-login)"
         sh "$DOCKER_COMMAND"
 
         stage "build"
