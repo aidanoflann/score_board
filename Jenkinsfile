@@ -14,6 +14,6 @@ node() {
         sh "docker build ."
 
         stage "publish"
-        sh "docker push http://364843010988.dkr.ecr.eu-west-1.amazonaws.com"
+        sh "docker push http://364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board"
     }
 }
