@@ -4,12 +4,14 @@ node() {
     def commit_id = readFile('.git/commit-id').trim()
     println commit_id
 
+    stage "docker_login"
+    sh "DOCKER_COMMAND=\$(aws ecr get-login)"
+    sh "\$DOCKER_COMMAND"
+
     stage "build"
     sh "docker build . -t score_board"
 
     stage "publish"
-    sh "DOCKER_COMMAND=\$(aws ecr get-login)"
-    sh "\$DOCKER_COMMAND"
     sh "docker tag score_board 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board"
     sh "docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board"
 }
