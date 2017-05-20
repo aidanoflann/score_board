@@ -7,7 +7,7 @@ node() {
         println commit_id
 
         stage "login"
-        aws "ecr get-login"
+        sh "aws ecr get-login"
 
         stage "build"
         def app = docker.build "score_board"
