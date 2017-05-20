@@ -6,7 +6,7 @@ node() {
         def commit_id = readFile('.git/commit-id').trim()
         println commit_id
 
-        stage "login"
+        stage "docker_login"
         sh "DOCKER_COMMAND=$(aws ecr get-login)"
         sh "$DOCKER_COMMAND"
 
