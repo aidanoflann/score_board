@@ -11,7 +11,7 @@ node() {
     sh "docker build . -t score_board"
 
     stage "publish"
-    sh "docker tag score_board:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board:latest"
     sh "\$(aws ecr get-login)"
+    sh "docker tag score_board:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board:latest"
     sh "docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board:latest"
 }
