@@ -7,7 +7,7 @@ node() {
     stage "docker_login"
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
     sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
-    sh "$TRIMMED_COMMAND"
+    sh "\$TRIMMED_COMMAND"
 
     stage "build"
     sh "docker build . -t score_board"
