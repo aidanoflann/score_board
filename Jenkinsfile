@@ -5,13 +5,14 @@ node() {
     println commit_id
 
     stage "docker_login"
-    sh "\$(aws ecr get-login)"
+    sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
+    sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
+    sh "$TRIMMED_COMMAND"
 
     stage "build"
     sh "docker build . -t score_board"
 
     stage "publish"
     sh "docker tag score_board:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board:latest"
-    sh "\$(aws ecr get-login --region eu-west-1)"
     sh "docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/score_board:latest"
 }
