@@ -6,6 +6,7 @@ node() {
 
     stage "docker_login"
     sh "\$(aws ecr get-login)"
+    sh "echo 'derp'"
 
     stage "build"
     sh "docker build . -t score_board"
