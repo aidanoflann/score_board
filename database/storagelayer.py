@@ -13,7 +13,7 @@ def connect():
     attempts = 0
     while attempts < settings.RETRY_ATTEMPTS:
         try:
-            db = MySQLdb.connect(user=settings.MYSQL_USERNAME, passwd=settings.MYSQL_PASSWORD)
+            db = MySQLdb.connect(host="mysql_db", user=settings.MYSQL_USERNAME, passwd=settings.MYSQL_PASSWORD)
             cursor = db.cursor()
             sql = 'CREATE DATABASE IF NOT EXISTS {}'.format(settings.MYSQL_SCOREBOARD_DB_NAME)
             cursor.execute(sql)
