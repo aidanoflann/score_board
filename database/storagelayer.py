@@ -23,7 +23,7 @@ def connect():
         except Exception as e:
             print("Attempt to connect to mysql DB failed. Retrying in {} seconds.".format(settings.RETRY_PERIOD))
             print("Attempt number {}. Max attempts: {}.".format(attempts, settings.RETRY_ATTEMPTS))
-            print("Error: {}".format(str(e.message)))
+            print("Error args: {}".format(str(e.args)))
             attempts += 1
             time.sleep(settings.RETRY_PERIOD)
 
