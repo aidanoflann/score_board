@@ -7,4 +7,4 @@ RUN apt-get update
 RUN apt-get install -y libmysqlclient-dev
 RUN pip install --upgrade -r requirements.txt
 
-CMD ["/usr/bin/python main.py"]
+CMD "python main.py"
