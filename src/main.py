@@ -1,3 +1,5 @@
+import time
+
 from flask import Flask
 
 from database.storagelayer import connect
@@ -14,6 +16,7 @@ def initialise_handlers(app):
     SQLWrapperHandler().register(app)
 
 if __name__ == "__main__":
+    time.sleep(20)  # This is really dumb
     app = Flask(__name__)
 
     initialise_database()
