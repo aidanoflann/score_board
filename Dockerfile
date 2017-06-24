@@ -1,7 +1,7 @@
 FROM 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:master
 MAINTAINER Aidan OFlannagain
 
-ADD . .
+#ADD . .
 
 RUN apt-get update
 RUN apt-get install -y libmysqlclient-dev
