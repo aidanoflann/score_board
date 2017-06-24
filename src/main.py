@@ -1,7 +1,6 @@
 from flask import Flask
 
 from database.storagelayer import connect
-
 from scoreboard.handler import ScoreBoardHandler
 from sql_wrapper.handler import SQLWrapperHandler
 

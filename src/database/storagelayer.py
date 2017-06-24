@@ -2,7 +2,7 @@ import time
 
 import MySQLdb
 
-from src import settings
+import settings
 
 db = None
 

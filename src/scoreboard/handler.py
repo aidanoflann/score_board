@@ -1,7 +1,8 @@
 from flask import request
 
-from scoreboard.transactions import insert_score_transaction, create_scoreboard_transaction, get_top_scores_transaction
-from src.core import Handler
+from core import Handler
+from scoreboard.transactions import insert_score_transaction, create_scoreboard_transaction, \
+    get_top_scores_transaction
 
 
 class ScoreBoardHandler(Handler):
