@@ -4,7 +4,8 @@ import MySQLdb
 def connect():
     # TODO: Create the database if not present
     print("Attempting to connect to mysql database...")
-    db = MySQLdb.connect(host="mysql_db", user="root", passwd="my-secret-pw", db="test")
+    # 54.194.71.225:3306
+    db = MySQLdb.connect(host="54.194.71.225", user="root", passwd="my-secret-pw", db="test")
     if db is None:
         raise Exception("Failed to connect to mysql database. Exiting...")
     print("Connection successful.")
