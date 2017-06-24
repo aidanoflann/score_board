@@ -1,8 +1,7 @@
 from flask import request
 
-from core import Handler
-
 from sql_wrapper.transactions import create_table_transaction, drop_table_transaction
+from src.core import Handler
 
 
 class SQLWrapperHandler(Handler):
