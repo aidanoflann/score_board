@@ -1,3 +1,5 @@
+import json
+
 from flask import request
 
 from core import Handler
@@ -24,7 +26,7 @@ class ScoreBoardHandler(Handler):
         request_json = request.get_json(force=True)
         game_name = request_json.get("game_name")
         result = get_top_scores_transaction(game_name)
-        return str(result)
+        return json.dumps(result)
 
     def __init__(self):
         self.db = None

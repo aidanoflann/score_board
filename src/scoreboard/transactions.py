@@ -35,4 +35,12 @@ def get_top_scores_transaction(game_name):
     :param game_name:
     :return:
     """
-    return select_all_transaction(game_name)
+    sql_fetch_data = select_all_transaction(game_name)
+    sql_fetch_list_of_dicts = []
+    for data_tuple in sql_fetch_data:
+        sql_fetch_list_of_dicts.append({
+            "user": data_tuple[0],
+            "score": data_tuple[1],
+            "time": str(data_tuple[2])
+        })
+    return {"scores": sql_fetch_list_of_dicts}
