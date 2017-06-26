@@ -6,6 +6,8 @@ from database.storagelayer import connect
 from scoreboard.handler import ScoreBoardHandler
 from sql_wrapper.handler import SQLWrapperHandler
 
+import settings
+
 
 def initialise_database():
     connect()
@@ -17,7 +19,7 @@ def initialise_handlers(app):
 
 if __name__ == "__main__":
     print("Waiting twenty seconds for the lulz.")
-    time.sleep(2)  # This is really dumb
+    time.sleep(settings.STARTUP_WAIT)  # This is really dumb
     app = Flask(__name__)
 
     initialise_database()
