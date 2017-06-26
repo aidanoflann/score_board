@@ -17,10 +17,10 @@ def initialise_handlers(app):
 
 if __name__ == "__main__":
     print("Waiting twenty seconds for the lulz.")
-    time.sleep(20)  # This is really dumb
+    time.sleep(2)  # This is really dumb
     app = Flask(__name__)
 
     initialise_database()
     initialise_handlers(app)
 
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=80)

@@ -2,3 +2,4 @@
 env
 *.pyc
 unix_env
+src/local_settings.py
