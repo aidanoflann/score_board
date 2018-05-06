@@ -1,0 +1,1 @@
+score_board is a simple top scores database with a python/flask frontend and SQL backend.
